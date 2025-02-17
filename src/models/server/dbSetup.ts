@@ -10,7 +10,7 @@ export default async function getOrCreateDB(){
   try {
     await databases.get(db)
     console.log("Database connection")
-  } catch (error) {
+  } catch (errors) {
     try {
       await databases.create(db, db)
       console.log("database created")
@@ -27,6 +27,8 @@ export default async function getOrCreateDB(){
     } catch (error) {
       console.log("Error creating databases or collection", error)
     }
+
+    console.log(errors)
   }
 
   return databases

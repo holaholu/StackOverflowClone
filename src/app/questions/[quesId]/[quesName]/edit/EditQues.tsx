@@ -15,7 +15,7 @@ const EditQues = ({ question }: { question: Models.Document }) => {
         if (question.authorId !== user?.$id) {
             router.push(`/questions/${question.$id}/${slugify(question.title)}`);
         }
-    }, []);
+    }); //will run on every render, [] will run only once
 
     if (user?.$id !== question.authorId) return null;
 

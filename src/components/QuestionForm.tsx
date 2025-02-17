@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import RTE from "@/components/RTE";
 import Meteors from "@/components/magicui/meteors";

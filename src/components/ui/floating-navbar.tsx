@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -29,7 +30,7 @@ export const FloatingNav = ({
             return;
         }
         if (typeof current === "number") {
-            let direction = current! - scrollYProgress.getPrevious()!;
+            const direction = current! - scrollYProgress.getPrevious()!;
 
             if (scrollYProgress.get() < 0.05) {
                 setVisible(false);

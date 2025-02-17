@@ -1,6 +1,8 @@
 "use client";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
+
 import { CSSProperties, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
 
 interface NeonColorsProps {

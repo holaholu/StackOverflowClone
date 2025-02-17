@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import { databases } from "@/models/client/config";
 import { db, questionCollection } from "@/models/name";

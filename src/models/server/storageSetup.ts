@@ -6,7 +6,7 @@ export default async function getOrCreateStorage() {
     try {
         await storage.getBucket(questionAttachmentBucket);
         console.log("Storage Connected");
-    } catch (error) {
+    } catch (errors) {
         try {
             await storage.createBucket(
                 questionAttachmentBucket,
@@ -29,5 +29,6 @@ export default async function getOrCreateStorage() {
         } catch (error) {
             console.error("Error creating storage:", error);
         }
+        console.log(errors)
     }
 }

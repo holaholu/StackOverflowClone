@@ -1,5 +1,5 @@
 "use client";
-
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { cn } from "@/lib/utils";
 import { CSSProperties, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
 
@@ -42,9 +42,23 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
     const [boxes, setBoxes] = useState<Array<HTMLElement>>([]);
 
     useEffect(() => {
-        init();
-        containerRef.current &&
-            setBoxes(Array.from(containerRef.current.children).map(el => el as HTMLElement));
+      init();
+
+      //Changed the code below due to build error
+    //   containerRef.current &&
+    //     setBoxes(
+    //       Array.from(containerRef.current.children).map(
+    //         (el) => el as HTMLElement
+    //       )
+    //     );
+
+      if (containerRef.current) {
+        setBoxes(
+          Array.from(containerRef.current.children).map(
+            (el) => el as HTMLElement
+          )
+        );
+      }
     }, []);
 
     useEffect(() => {
@@ -137,7 +151,7 @@ interface MagicCardProps {
      * @description
      * Whether to show the spotlight
      * */
-    spotlight?: boolean;
+   // spotlight?: boolean;
 
     /**
      * @default "rgba(255,255,255,0.03)"
@@ -153,7 +167,7 @@ interface MagicCardProps {
      * @description
      * Whether to isolate the card which is being hovered
      * */
-    isolated?: boolean;
+    //isolated?: boolean;
 
     /**
      * @default "rgba(255,255,255,0.03)"
@@ -170,9 +184,9 @@ const MagicCard: React.FC<MagicCardProps> = ({
     className,
     children,
     size = 600,
-    spotlight = true,
+    //spotlight = true,
     borderColor = "hsl(0 0% 98%)",
-    isolated = true,
+    //isolated = true,
     ...props
 }) => {
     return (
